@@ -1,5 +1,5 @@
 # SneakerMan
-A web application developed on .Net MVC
+A web application developed on .Net MVC <br>
 This application is an assignemnt from Monash University 
 
 ## How to run
