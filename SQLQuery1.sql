@@ -1,0 +1,1 @@
+﻿DBCC CHECKIDENT (Customer, RESEED, 6)

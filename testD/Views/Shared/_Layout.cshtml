@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/dataTables")
+    @Scripts.Render("~/bundles/site")
+    @RenderSection("scripts", required: false)
+
+</head>
+<body id="myPage" data-spy="affix" data-target=".navbar" data-offset="50">
+    <!-- Navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#myPage">Sneaker Man</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right">
+                    
+                    <li>@Html.ActionLink("HOME", "Index", "Home")</li>
+                    
+                    @*<li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            MANAGEMENT
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">  
+                            <li>@Html.ActionLink("CUSTOMER MANAGEMENT", "Index", "Customers")</li>
+                            <li>@Html.ActionLink("ORDER MANAGEMENT", "Index", "ShoesOrders")</li>
+                           
+</ul>
+                    </li>*@
+                    <li>@Html.ActionLink("DOCUMENTATION", "Documentation", "Home")</li>
+
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            ABOUT US
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("History", "About", "Home")</li>
+                            <li>@Html.ActionLink("FAQ", "FAQ", "Home")</li>
+                        </ul>
+                    </li>
+
+                   
+                    
+                    <li>@Html.Partial("_LoginPartial")</li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container-fluid">
+        @RenderBody()
+        <hr />
+        <!-- Footer -->
+        <footer class="text-center">
+            <a class="up-arrow" href="#myPage" data-toggle="tooltip" title="TO TOP">
+                <span class="glyphicon glyphicon-chevron-up"></span>
+            </a><br><br>
+            <p> <p>CopyRight 2017. Sneaker Man</p>
+        </footer>
+
+    </div>
+
+   
+</body>
+</html>

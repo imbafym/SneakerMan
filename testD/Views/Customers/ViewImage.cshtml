@@ -1,0 +1,12 @@
+﻿@model testD.Models.Customer
+@{
+    ViewBag.Title = "ViewImage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br>
+<br>
+<br>
+<h2>ViewImage</h2>
+
+
+    <img class="img-thumbnail" src='@Url.Content("~/Uploads/" +@ViewBag.Message +"/" + @ViewBag.Message + ".png")' />

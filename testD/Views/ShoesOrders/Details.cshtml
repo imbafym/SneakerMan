@@ -1,0 +1,67 @@
+﻿@model testD.Models.ShoesOrder
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ShoesOrder</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.orderDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.orderDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.orderPrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.orderPrice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.quantity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.quantity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.shoesName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.shoesName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.comments)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.comments)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Customer.customerFName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Customer.customerFName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.orderId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

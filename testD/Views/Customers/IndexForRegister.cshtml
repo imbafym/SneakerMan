@@ -1,0 +1,72 @@
+﻿@model IEnumerable < testD.Models.Customer >
+    
+
+@{
+    ViewBag.Title = "IndexForRegister";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<br>
+
+<br>
+
+<h2>Current Users</h2>
+
+<table id="example" class="display select" cellspacing="0" width="100%">
+    <thead>
+        <tr>
+            <th><input type="checkbox" name="select_all" value="1" id="example-select-all"></th>
+            <th>
+                @Html.DisplayNameFor(model => model.customerFName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.customerLName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.customerAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.customerPhone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.customerEmail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.customerState)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+            {
+            <tr>
+                <td></td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.customerFName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.customerLName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.customerAddress)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.customerPhone)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.customerEmail)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.customerState)
+                </td>
+                <td>
+                    @Html.ActionLink("Details", "Details", new { id = item.customerId }) |
+                 
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

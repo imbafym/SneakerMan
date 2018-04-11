@@ -1,0 +1,117 @@
+﻿@*@model testD.Models.IndexViewModel*@
+
+@{
+    ViewBag.Title = "Manage";
+}
+
+
+
+<p class="text-success">@ViewBag.StatusMessage</p>
+<div>
+    <br>
+   
+    <br>
+    @if (!User.IsInRole("Administrator"))
+    {
+        <h4>Change your account settings</h4>
+
+    }
+    else
+    {
+
+        <h4>Administrater Page</h4>
+
+    }
+
+    <hr />
+    <dl class="dl-horizontal left">
+        <dt>Password:</dt>
+        <dd>
+            [
+            @if (Model.HasPassword)
+            {
+                @Html.ActionLink("Change your password", "ChangePassword")
+            }
+            else
+            {
+                @Html.ActionLink("Create", "SetPassword")
+            }
+            ]
+        </dd>
+@if (!User.IsInRole("Administrator"))
+{
+
+    <dt>Personal Info:</dt>
+    <dd>
+        [ @Html.ActionLink("Modify", "CreateIndividual", "Customers") ]
+    </dd>
+}
+        
+        
+        <dt>Upload Image:</dt>
+        <dd>
+            [ @Html.ActionLink("Upload", "UploadImage", "Customers") ]
+        </dd>
+
+@if (!User.IsInRole("Administrator"))
+{
+
+        <dt>Order Info:</dt>
+        <dd>
+            [ @Html.ActionLink("View", "IndexUserOrders", "ShoesOrders") ]
+        </dd>
+}
+
+
+
+        <dt>Image Info:</dt>
+        <dd>
+            [ @Html.ActionLink("View", "ViewImage", "Customers") ]
+        </dd>
+        </dd>
+            @if (User.IsInRole("Administrator"))
+            {
+                <dt>
+                    Send Email:
+                </dt>
+            }
+        
+            @if (User.IsInRole("Administrator"))
+            {
+                <dd>
+                   [ @Html.ActionLink("Send", "SendEmail", "Home") ]
+                    
+                </dd>
+
+            }
+        @if (User.IsInRole("Administrator"))
+            {
+            <dt>
+                Management:
+            </dt>
+        }
+
+        @if (User.IsInRole("Administrator"))
+            {
+            <dd>
+               [ @Html.ActionLink("Search Customers", "Index", "Customers") ]
+
+            </dd>
+
+        }
+
+        @if (User.IsInRole("Administrator"))
+            {
+            <dd>
+                [ @Html.ActionLink("Search Orders", "Index", "ShoesOrders") ]
+
+            </dd>
+
+        }
+
+      
+       
+
+
+    </dl>
+</div>

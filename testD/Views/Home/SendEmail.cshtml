@@ -1,0 +1,178 @@
+﻿@model testD.Models.EmailFormModel
+@{
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br>
+<br>
+@using (Html.BeginForm("SendEmail", "Home", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    <br>
+    <br>
+    <h4>Send your Email</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(m => m.FromName, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.FromName, new { @class = "form-control", @Value = "Sneaker Man" })
+            @Html.ValidationMessageFor(m => m.FromName)
+
+        </div>
+    </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.FromEmail, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.FromEmail, new { @class = "form-control" ,@Value = "yfan150@student.monash.edu"})
+                        @Html.ValidationMessageFor(m => m.FromEmail)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(m => m.ToEmail, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        <input type="textbox" id="confirm" />
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="col-md-2 control-label">Confirm Email Address</label>
+                    <br>
+                    <div class="col-md-10">
+                        <div id="textbox">
+                            @Html.TextAreaFor(m => m.ToEmail, new { @class = "form-control", @Value = ViewBag.MyVariable })
+                            @*@Html.ValidationMessageFor(m => m.ToEmail)*@
+                        </div>
+
+                        <div id="list1" class="dropdown-check-list" tabindex="100">
+
+                            <span class="anchor">Select Email</span>
+                            <br>
+                            @*<ul class="items">*@
+                            @if (ViewBag.userdetails != null)
+                            {
+                                foreach (var item in ViewBag.userdetails)
+                                {
+                                    var s = @item.customerEmail;
+                                    <input class="messageCheckbox" type="checkbox" value=@item.customerEmail> @item.customerEmail <p>    @item.customerFName  @item.customerLName</p>
+                                    <br>
+                                }
+                            }
+
+
+                            @*</ul>*@
+
+                        </div>
+                    </div>
+                    </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.Message, new { @class = "col-md-2 control-label" })
+                                <div class="col-md-10">
+                                    @Html.TextAreaFor(m => m.Message, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(m => m.Message)
+                                </div>
+                            </div>
+                            @*<div class="form-group">
+                                @Html.LabelFor(m => m.Upload, new { @class = "col-md-2 control-label" })
+                                <div class="col-md-10">
+                                    <input type="file" name="upload" />
+                                </div>
+                            </div>*@
+
+
+                            <div class="form-group">
+                                <div class="col-md-offset-2 col-md-10">
+                                    <input type="submit" class="btn btn-default" value="Send" />
+                                </div>
+                            </div>
+}
+
+
+<br>
+
+<br><br>
+<br>
+<br><br>
+<br>
+<br>
+<br>
+
+<br>
+
+<br><br>
+<br>
+<br><br>
+<br>
+<br>
+<br><br>
+
+<br><br>
+<br>
+<br><br>
+<br>
+<br>
+<br><br>
+
+<br><br>
+<br>
+<br><br>
+<br>
+<br>
+<br><br>
+
+<br><br>
+<br>
+<br><br>
+<br>
+<br>
+<br><br>
+
+<br><br>
+<br>
+<br><br>
+<br>
+<br>
+<br>
+
+
+<script type="text/javascript">
+
+    var checkList = document.getElementById('list1');
+    checkList.getElementsByClassName('anchor')[0].onclick = function (evt) {
+        if (checkList.classList.contains('visible')) {
+            checkList.classList.remove('visible');
+        }
+        else {
+            checkList.classList.add('visible');
+
+        }
+
+    }
+
+    var inputElements = document.getElementsByClassName('messageCheckbox');
+    var confirm = document.getElementById('confirm');
+    checkList.onblur = function (evt) {
+        checkList.classList.remove('visible');
+        var checkedValue = "";
+        for (var i = 0; inputElements[i]; i++) {
+            if (inputElements[i].checked) {
+                checkedValue += inputElements[i].value + ";";
+
+            }
+        }
+        confirm.value = checkedValue;
+        //alert(checkedValue);
+    }
+
+
+</script>
+
+
+
+@*@section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }*@
